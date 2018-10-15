@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #343434;
+  color: #16b1b5;
+  font-family: 'Raleway', sans-serif;
+  font-weight; 200;
+  font-size: 24px;
+  scroll-behavior: smooth;
+}
+
+header {
+  padding: 40px;
+  line-height; .8;
+}
+
+h1 {
+  line-height: .8;
+}
+
+p {
+  margin: 1em 0;
+}
+
+nav {
+  font-size: 16px;
+  text-align: center;
+  padding: 1em 0;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  margin: 20px;
+  padding: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid white;
+}
+
+#work {
+  background-color: #16b1b5;
+  padding: 40px;
+  color: rgb(255, 255, 255);
+  column-count: 2;
+}
+
+#hobbies {
+  padding: 40px;
+
+}
+
+
+#gallery {
+  column-count: 3;
+  column-gap: 0;
+  background-color: #16b1b5;
+}
+
+
+img {
+  width: 100%; /* makes your images smaller by adjusting the width to the column with. The height is adjusted proportionally*/
+  display: block; /* tells the browser not to treat the images like the inline that they are but like block i.e. deletes the spaces between the images*/
+  height: calc(100vw / 3); /* you must have 1 space on either side of the operator*/
+  object-fit: cover;
+  object-position: top;
+}
+
+div {
+  break-inside: avoid;
+}
+
+footer {
+  text-align: center;
