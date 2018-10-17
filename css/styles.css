@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0
+}
+
+html {
+  font-family: 'Concert One', cursive;
+  scroll-behavior: smooth;
+}
+
+header {
+  height: 25vh;
+  background-image: url(../images/purple-flowers.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+h1 {
+  color: rgba(100, 0, 150, 1);
+  font-size: 50px;
+}
+
+body {
+  background-color: rgba(204, 102, 255, 1);
+}
+
+div {
+  text-align: center;
+
+}
+
+#MyAssignments {
+  text-align: left;
+  padding: .5em;
+  color: rgba(100, 0, 150, 1);
+}
+#AssignmentList {
+  padding-top: 1em;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  color: rgba(100, 0, 150, 1);
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(139, 0, 208, 1);
+  font-size: 25px;
+  color: rgba(100, 0, 150, 1);
+}
