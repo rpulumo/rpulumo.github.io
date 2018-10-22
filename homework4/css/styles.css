@@ -6,6 +6,7 @@ html {
   font-family: 'Open Sans', sans-serif;
 }
 
+
 body {
   min-height: 100vh;
   display: grid;
@@ -22,11 +23,14 @@ header {
   background-color: #033048;
 }
 
+nav {
+  display: inline-block;
+  font-weight: 600;
+  float: right;
+}
+
 article {
   margin: 2em;
-}
-nav {
-  font-weight: 600;
 }
 
 a{
@@ -52,6 +56,7 @@ p {
   display: flex;
   flex-direction: column;
   color: #033048;
+  text-align: left;
 }
 
 main {
@@ -78,7 +83,7 @@ p + a {
 div {
   text-align: center;
   background-color: #f9e42e;
-  border: 20px;
+  border: 1em;
 }
 
 aside {
@@ -87,6 +92,10 @@ aside {
 footer {
   grid-area: footer;
   background-color: #033048;
+  /*background-image: url(../images/relaxr-logo-yellow.svg)
+  background-size: 50%, cover;
+  /*background-repeat: no-repeat;
+  background-position: center;*/
   color: white;
   text-align: center;
 }
@@ -96,14 +105,21 @@ footer {
   background-color: #033048;
   color: white;
   font-weight: 600;
-  padding: 10px;
+  padding: 1em;
 }
 
 img {
   width: 100%;
 }
 
-.footerimage {
+.mediaiconimage {
+  width: 5%;
+  margin: 1em;
+}
+.relaxriconimage {
   width: 10%;
-  border-top: 25px;
+  margin: 1em;
+}
+#footerrelaxrimage {
+  text-align: center;
 }
