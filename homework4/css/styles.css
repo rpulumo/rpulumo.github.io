@@ -11,10 +11,11 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 65% 35%;
-  grid-template-rows: 10vh auto minmax(20vh, 30vh);
+  grid-template-rows: 10vh auto auto minmax(20vh, 30vh);
   grid-template-areas:
     "header header"
     "content sidebar"
+    "cta cta"
     "footer footer";
   background-color: #f0efef;
 }
@@ -80,9 +81,8 @@ h3 + h2 {
 p + a {
   float: right;
 }
-div {
+footer div {
   text-align: center;
-  background-color: #f9e42e;
   border: 1em;
 }
 
@@ -100,12 +100,13 @@ footer {
   text-align: center;
 }
 
-#signing {
-  text-align: center;
-  background-color: #033048;
-  color: white;
+.cta a {
   font-weight: 600;
   padding: 1em;
+  color: white;
+  background-color: #033048;
+  padding: .75em 5em;
+  border-radius: .25em;
 }
 
 img {
@@ -122,4 +123,17 @@ img {
 }
 #footerrelaxrimage {
   text-align: center;
+}
+
+.cta {
+  grid-area: cta;
+  background-color: #f9e42e;
+  text-align: center;
+  padding: 2em;
+
+}
+
+footer p {
+  color: white;
+  padding-bottom: 2em;
 }
