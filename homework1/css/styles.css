@@ -74,3 +74,8 @@ div {
 
 footer {
   text-align: center;
+}
+
+.center {
+  object-position: center;
+}
