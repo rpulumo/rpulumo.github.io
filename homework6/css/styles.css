@@ -29,12 +29,12 @@ header {
   height: 2rem;
 }
 
-.bar-menu {
+.menu-toggle {
   display: none;
 }
  header nav {
    width: 50%;
-   display: flex;
+  display: flex !important;
    justify-content: space-between;
  }
 
@@ -47,7 +47,9 @@ header a {
    text-decoration: none;
  }
 
-
+ article img {
+   width: 100%;
+ }
 
 /*main {
   background-color: #ddd;
@@ -70,6 +72,8 @@ article h2 {
 article p {
   font-size: 1.1em;
 }
+
+
 
 article p:first-of-type::first-letter {
   font-size: 2em;
@@ -174,14 +178,18 @@ footer nav img {
   height: 2rem;
   }
 
-  .bar-menu {
+  .menu-toggle {
     display: block;
     float: right;
   }
 
   header nav {
   background: rgba(3, 48, 72, 0.75);
+  width: 100%;
   position: absolute;
+  flex-direction: column;
+  top: 6rem;
+  right: 0;
   }
 
   header a {
@@ -189,19 +197,6 @@ footer nav img {
   text-align: right;
   padding: 1rem;
   }
-
-
-
-
-
-
-
-  /*.bar-menu {
-    height: 2rem;
-    display: inline;
-    float: right;
-  }*/
-
 
   main {
     width: 100%;

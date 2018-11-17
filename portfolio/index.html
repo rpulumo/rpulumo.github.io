@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit:no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reitumetse Pulumo</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+
+    <header id="menu">
+      <h1> Hi, I'm Reitumetse Pulumo</h1>
+      <h2>I'm a front-end web developer passionate about creating responsive, user friendly intuitive designs</h2>
+      <div>
+        <a href="#">
+          <img class="menu-toggle" src="images/toggle.svg" alt="menu toggle">
+        </a>
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </header>
+
+    <aside id="skills">
+      <h2>Skills</h2>
+      <div>
+        <p>HTML</p>
+        <p>CSS</p>
+        <p>JavaScript</p>
+      </div>
+    </aside>
+
+    <main id="portfolio">
+      <h2>Portfolio</h2>
+
+
+        <div>
+          <a href="#">
+            <img class="sort-toggle" src="images/sort.png" alt="sort toggle">
+          </a>
+          <a href="#">
+            <img class="filter-toggle" src="images/filter.png" alt="filter toggle">
+          </a>
+        </div>
+
+        <nav class="sort-portfolio">
+          <a href="#">A to Z</a>
+          <a href="#">Newest</a>
+          <a href="#">Oldest</a>
+        </nav>
+        <nav class="filter-portfolio">
+          <a href="#">HTML & CSS</a>
+          <a href="#">HTML CSS & JavaScript</a>
+        </nav>
+
+        <!-- <a class="sort" href="#">Sort</a>
+        <nav class="sort-portfolio">
+          <a href="#">A to Z</a>
+          <a href="#">Newest</a>
+          <a href="#">Oldest</a>
+        </nav> -->
+      <!-- <a class="filter" href="#">Filter</a>
+      <nav class="filter-portfolio">
+        <a href="#">HTML & CSS</a>
+        <a href="#">HTML CSS & JavaScript</a>
+      </nav> -->
+
+
+
+      <section id="portfolio-images">
+        <!-- REMEMBER TO ADD LINKS TO EACH PORTFOLIO PAGE-->
+        <div>
+          <img src="images/tumi-page.png" alt="">
+          <p>
+            <a href="#">Learn More</a>
+          </p>
+        </div>
+
+        <div>
+          <img src="images/bounty.png" alt="">
+          <p>
+            <a href="#">Learn More</a>
+          </p>
+        </div>
+
+        <div>
+          <img src="images/relaxr.png" alt="">
+          <p>
+            <a href="#">Learn More</a>
+          </p>
+        </div>
+
+        <div>
+          <img src="images/eshas.png" alt="">
+          <p>
+            <a href="#">Learn More</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+
+    <footer id="contact">
+      <h2>Contact</h2>
+      <a href="mailto:abcd@gmail.com">Email</a>
+      <a href="www.linkedin.com/in/reitumetse-pulumo">LinkedIn</a>
+    </footer>
+
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script>
+  $('.menu-toggle').click(function(){
+    $('header nav').slideToggle();
+  });
+</script>
+
+  <script>
+  $('.sort-toggle').click(function(){
+    $('.sort-portfolio').slideToggle();
+  });
+  </script>
+
+  <script>
+  $('.filter-toggle').click(function(){
+    $('.filter-portfolio').slideToggle();
+  });
+  </script>
+
+  </body>
+</html>

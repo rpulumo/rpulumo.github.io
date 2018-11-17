@@ -1,0 +1,7 @@
+div {
+  background: blue;
+  transition: color 2s;
+}
+div:hover {
+  color: red;
+}
