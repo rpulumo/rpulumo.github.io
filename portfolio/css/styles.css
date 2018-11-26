@@ -26,11 +26,22 @@ h2 {
   margin: 1rem 0;
 }
 
+#scroll-arrow {
+  position:fixed;
+  top:75px;
+  right:10px;
+  display:none;
+  z-index: 2000;
+}
+
 
 #main-nav a {
   border-bottom: 1px #002020 dashed;
 }
 
+#main-nav a:last-child {
+  border: none;
+}
 
 a {
   text-decoration: none;
@@ -58,7 +69,8 @@ a:hover {
 }
 
 header {
-  position: absolute;
+  position: relative;
+  height: 100vh;
   top: 0;
   right: 0;
   bottom: 0;
@@ -117,6 +129,11 @@ header {
   font-size: 1.125rem;
 }
 
+.sort-portfolio a:last-child,
+.filter-portfolio a:last-child {
+  border: none;
+}
+
 .sort-portfolio a {
   text-align: left;
 }
@@ -133,9 +150,12 @@ header {
 }
 
 
+
+
 #portfolio-images div {
   position: relative;
 }
+
 
 #portfolio-images img {
   width: 100%;

@@ -11,22 +11,24 @@
   </head>
   <body>
   <!-- Background Video -->
-    <div class="homepage-hero-module">
-      <div class="video-container">
-        <div class="filter"></div>
-        <video autoplay loop class="fillWidth" poster="video/poster/love-coding.jpg">
-          <source src="video/love-coding.mp4" type="video/mp4" />
-        </video>
-      </div>
+    <div id="video-wrapper">
+      <video playsinline autoplay muted loop poster="video/poster/love-coding.jpg" id="bg-video">
+        <source src="video/love-coding.webm" type="video/webm">
+        <source src="video/love-coding.mp4" type="video/mp4">
+      </video>
     </div>
 
     <!-- Header -->
-    <header id="menu">
+    <header id="home">
       <h1> Hi, I'm Reitumetse Pulumo</h1>
       <h2>I'm a front-end web developer passionate about creating responsive, user friendly intuitive designs</h2>
 
       <button class="toggle" id="menu-toggle" aria-label="Main Navigation Menu Toggle">
         <img src="images/toggle.svg">
+      </button>
+
+      <button class="toggle" id="scroll-arrow" aria-label="Scroll Up Toggle">
+        <img src="images/double-up-solid.svg">
       </button>
 
       <div class="nav-container">
@@ -67,37 +69,38 @@
           <a href="#">Oldest</a>
         </div>
         <div class="filter-portfolio">
-          <a href="#">HTML & CSS</a>
+          <a href="#">Display All</a>
+          <a href="#">HTML & CSS only</a>
           <a href="#">HTML CSS & JavaScript</a>
         </div>
 
       <section id="portfolio-images">
-        <!-- REMEMBER TO ADD LINKS TO EACH PORTFOLIO PAGE-->
-        <div>
-          <img src="images/tumi-page.png" alt="">
+        <!-- LINKS TO PORTFOLIO PAGES -->
+        <div id="tumi" class="html-css-js">
+          <img src="images/tumi-page.png" alt="Preview of Tumi web page">
           <p>
-            <a href="#">Learn More</a>
+            <a href="projects/tumi/index.html" target="_blank">Learn More</a>
           </p>
         </div>
 
-        <div>
-          <img src="images/bounty.png" alt="">
+        <div id="bounty20" class="html-css">
+          <img src="images/bounty20.png" alt="Preview of Bounty20 menu page">
           <p>
-            <a href="#">Learn More</a>
+            <a href="projects/bounty20/index.html" target="_blank">Learn More</a>
           </p>
         </div>
 
-        <div>
+        <div id="relaxr" class="html-css">
           <img src="images/relaxr.png" alt="">
           <p>
-            <a href="#">Learn More</a>
+            <a href="projects/relaxr/blog.html" target="_blank">Learn More</a>
           </p>
         </div>
 
-        <div>
+        <div id="eshas" class="html-css-js">
           <img src="images/eshas.png" alt="">
           <p>
-            <a href="#">Learn More</a>
+            <a href="projects/esha/index.html" target="_blank">Learn More</a>
           </p>
         </div>
       </section>
@@ -111,14 +114,17 @@
         <a href="https://www.linkedin.com/in/reitumetse-pulumo">LinkedIn</a>
       </nav>
 
+
     </footer>
 
     <script
       src="http://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
+    <script src="js/video-functions.js"></script>
     <script>
     $(document).ready(function(){
+
 
       $('#menu-toggle').click(function(){
         $('.sort-portfolio').slideUp();
@@ -142,20 +148,87 @@
       $(this).slideUp();
       });
 
-      //BACKGROUND VIDEO JS
+      // FILTER
 
-    scaleVideoContainer();
+      $('.filter-portfolio a:nth-child(1)').click(function(){
+        $('.html-css-js').show();
+        $('.html-css').show();
+      });
 
-    initBannerVideoSize('.video-container .poster img');
-    initBannerVideoSize('.video-container .filter');
-    initBannerVideoSize('.video-container video');
+      $('.filter-portfolio a:nth-child(2)').click(function(){
+        $('.html-css-js').hide();
+        $('.html-css').show();
+      });
 
-    $(window).resize(function() {
-      scaleVideoContainer();
-      scaleBannerVideoSize('.video-container .poster img');
-      scaleBannerVideoSize('.video-container .filter');
-      scaleBannerVideoSize('.video-container video');
-    });
+      $('.filter-portfolio a:nth-child(3)').click(function(){
+        $('.html-css').hide();
+        $('.html-css-js').show();
+      });
+
+      // Sort
+      $('.sort-portfolio a:nth-child(1)').click(function(){
+        let sort-ids = ['tumi', 'bounty20', 'relaxr', 'eshas'];
+        $(sort-ids).sort();
+        for (let sort-id of sort-ids) {
+          if (sort-id === 'bounty20') {
+            $('#portfolio-images div:first-child').html(`
+              <div id="bounty20" class="html-css">
+                <img src="images/bounty20.png" alt="Preview of Bounty20 menu page">
+                <p>
+                  <a href="projects/bounty20/index.html" target="_blank">Learn More</a>
+                </p>
+              </div>
+            `);
+            else if (sort-id === 'eshas') {
+              $('#portfolio-images div:nth-child(2)').html(`
+                <div id="eshas" class="html-css-js">
+                  <img src="images/eshas.png" alt="">
+                  <p>
+                    <a href="projects/esha/index.html" target="_blank">Learn More</a>
+                  </p>
+                </div>
+                `);
+              else if (sort-id === 'relaxr') {
+                $('#portfolio-images div:nth-child(3)').html(`
+                  <div id="relaxr" class="html-css">
+                    <img src="images/relaxr.png" alt="">
+                    <p>
+                      <a href="projects/relaxr/blog.html" target="_blank">Learn More</a>
+                    </p>
+                  </div>
+                  `);
+                else if (sort-id === 'tumi') {
+                  $('portfolio-images div:nth-child(4)').html(`
+                    <div id="tumi" class="html-css-js">
+                      <img src="images/tumi-page.png" alt="Preview of Tumi web page">
+                      <p>
+                        <a href="projects/tumi/index.html" target="_blank">Learn More</a>
+                      </p>
+                    </div>
+                    `);
+                }
+              }
+            }
+          }
+        }
+      });
+
+
+
+      $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('#scroll-arrow').fadeIn();
+        } else {
+            $('#scroll-arrow').fadeOut();
+        }
+      });
+
+      $('#scroll-arrow').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        $('#main-nav, .sort-portfolio, .filter-portfolio').slideUp();
+        return false;
+      });
+
 
     });
     </script>
