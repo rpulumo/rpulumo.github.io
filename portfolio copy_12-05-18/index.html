@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit:no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reitumetse Pulumo</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/video.css">
+  </head>
+  <body>
+  <!-- Background Video -->
+    <div id="video-wrapper">
+      <video playsinline autoplay muted loop poster="video/poster/love-coding.jpg" id="bg-video">
+        <source src="video/love-coding.webm" type="video/webm">
+        <source src="video/love-coding.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Header -->
+    <header id="home">
+      <button class="toggle" id="menu-toggle" aria-label="Main Navigation Menu Toggle">
+        <img src="images/toggle.svg">
+      </button>
+
+      <div class="nav-container">
+        <nav id="main-nav">
+          <a href="#home">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <button class="toggle" id="scroll-arrow" aria-label="Scroll Up Toggle">
+        <img src="images/double-up-solid.svg">
+      </button>
+
+
+        <div id='intro'>
+          <h1> Hi, I'm Reitumetse Pulumo</h1>
+          <h2>I'm a front-end web developer passionate about creating responsive, user friendly intuitive designs</h2>
+        </div>
+
+        <div id='skills'>
+          <h1>My Skills</h1>
+          <h2 class="skill">HTML</h2>
+          <h2 class="skill">CSS</h2>
+          <h2 class="skill">JavaScript</h2>
+        </div>
+
+    </header>
+
+
+
+    <!-- Portfolio -->
+    <main id="portfolio">
+      <h2>Portfolio</h2>
+        <div class="menu-bar">
+          <button class="toggle" id="sort-toggle" aria-label="Sort Toggle Button">
+            <img src="images/sort-solid.svg">
+          </button>
+          <button class="toggle" id="filter-toggle" aria-label="Filter Toggle Button">
+            <img src="images/filter-solid.svg">
+          </button>
+        </div>
+
+        <div class="sort-portfolio">
+          <!-- <a href="#">A to Z</a> -->
+          <a href="#">Newest</a>
+          <a href="#">Oldest</a>
+        </div>
+        <div class="filter-portfolio">
+          <a href="#">Display All</a>
+          <a href="#">HTML & CSS only</a>
+          <a href="#">HTML CSS & JavaScript</a>
+        </div>
+
+      <section id="portfolio-images">
+        <!-- LINKS TO PORTFOLIO PAGES -->
+        <!-- <div id="tumi" class="html-css-js">
+          <img src="images/tumi-page.png" alt="Preview of Tumi web page">
+          <p>
+            <a href="projects/tumi/index.html" target="_blank">Learn More</a>
+          </p>
+        </div>
+
+        <div id="bounty20" class="html-css">
+          <img src="images/bounty20.png" alt="Preview of Bounty20 menu page">
+          <p>
+            <a href="projects/bounty20/index.html" target="_blank">Learn More</a>
+          </p>
+        </div>
+
+        <div id="relaxr" class="html-css-js">
+          <img src="images/relaxr.png" alt="">
+          <p>
+            <a href="projects/relaxr/blog.html" target="_blank">Learn More</a>
+          </p>
+        </div>
+
+        <div id="eshas" class="html-css-js">
+          <img src="images/eshas.png" alt="">
+          <p>
+            <a href="projects/esha/index.html" target="_blank">Learn More</a>
+          </p>
+        </div> -->
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <h2>Contact</h2>
+      <nav>
+        <a href="mailto:abcd@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/reitumetse-pulumo">LinkedIn</a>
+      </nav>
+
+
+    </footer>
+
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="js/video-functions.js"></script>
+    <script>
+    $(document).ready(function(){
+
+      const projects = [
+        {img: "images/tumi-page.png", class: "html-css-js", tags: ['css','html', 'js'], date: "October 15, 2018", projectSite: 'projects/tumi/index.html'},
+        {img: "images/bounty20.png", class: "html-css", tags: ['css','html'], date: "October 10, 2018", projectSite: 'projects/bounty20/index.html'},
+        {img: "images/relaxr.png", class: "html-css-js", tags: ['css','html', 'js'], date: "October 30, 2018", projectSite: 'projects/relaxr/blog.html'},
+        {img: "images/eshas.png", class: "html-css-js", tags: ['css','html', 'js'], date: "October 10, 2018", projectSite: 'projects/esha/index.html'},
+      ];
+      let template = '';
+      for (let project of projects) {
+
+        template += `<div class=${project.class}>
+            <img src="${project.img}" alt="">
+            <p>
+              <a href="${project.projectSite}" target="_blank">Learn More</a>
+            </p>
+          </div>`
+      }
+      $('#portfolio-images').append(template);
+
+
+      $('#menu-toggle').click(function(){
+        $('.sort-portfolio').slideUp();
+        $('.filter-portfolio').slideUp();
+        $('#main-nav').slideToggle();
+      });
+
+      $('#sort-toggle').click(function(){
+        $('#main-nav').slideUp();
+        $('.filter-portfolio').slideUp();
+        $('.sort-portfolio').slideToggle();
+      });
+
+      $('#filter-toggle').click(function(){
+        $('#main-nav').slideUp();
+        $('.sort-portfolio').slideUp();
+        $('.filter-portfolio').slideToggle();
+      });
+
+      $('#main-nav, .sort-portfolio, .filter-portfolio').click(function(){
+      $(this).slideUp();
+      });
+
+      // FILTER
+
+      $('.filter-portfolio a:nth-child(1)').click(function(){
+        $('.html-css-js').show();
+        $('.html-css').show();
+      });
+
+      $('.filter-portfolio a:nth-child(2)').click(function(){
+        $('.html-css-js').hide();
+        $('.html-css').show();
+      });
+
+      $('.filter-portfolio a:nth-child(3)').click(function(){
+        $('.html-css').hide();
+        $('.html-css-js').show();
+      });
+
+      // $('.filter-portfolio a:nth-child(2)').click(function(){
+      //   for (let project of projects) {
+      //     let filterTemplate = `
+      //     <div>
+      //         <img src="${project.img}" alt="">
+      //         <p>
+      //           <a href="${project.projectSite}" target="_blank">Learn More</a>
+      //         </p>
+      //       </div>`;
+      //     if (project.tags[2] === 'js') {
+      //       $(filterTemplate).hide();
+      //     }
+      //   }
+      // });
+
+
+
+      $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('#scroll-arrow').fadeIn();
+        } else {
+            $('#scroll-arrow').fadeOut();
+        }
+      });
+
+      $('#scroll-arrow').click(function(){
+        $('html, body').animate({scrollTop : 0},1000);
+        $('#main-nav, .sort-portfolio, .filter-portfolio').slideUp();
+      });
+
+
+    });
+    </script>
+
+  </body>
+</html>

@@ -20,15 +20,8 @@
 
     <!-- Header -->
     <header id="home">
-      <h1> Hi, I'm Reitumetse Pulumo</h1>
-      <h2>I'm a front-end web developer passionate about creating responsive, user friendly intuitive designs</h2>
-
       <button class="toggle" id="menu-toggle" aria-label="Main Navigation Menu Toggle">
         <img src="images/toggle.svg">
-      </button>
-
-      <button class="toggle" id="scroll-arrow" aria-label="Scroll Up Toggle">
-        <img src="images/double-up-solid.svg">
       </button>
 
       <div class="nav-container">
@@ -39,70 +32,47 @@
           <a href="#contact">Contact</a>
         </nav>
       </div>
-    </header>
 
-    <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div>
+
+      <div id='intro'>
+        <h1> Hi, I'm Reitumetse Pulumo</h1>
+        <p>I'm a front-end web developer passionate about creating responsive, user friendly intuitive designs</p>
+      </div>
+
+      <div id='skills'>
+        <h1>My Skills</h1>
         <p class="skill">HTML</p>
         <p class="skill">CSS</p>
         <p class="skill">JavaScript</p>
       </div>
-    </section>
+
+    </header>
+
 
     <!-- Portfolio -->
     <main id="portfolio">
       <h2>Portfolio</h2>
-        <div class="menu-bar">
-          <button class="toggle" id="sort-toggle" aria-label="Sort Toggle Button">
-            <img src="images/sort-solid.svg">
-          </button>
-          <button class="toggle" id="filter-toggle" aria-label="Filter Toggle Button">
-            <img src="images/filter-solid.svg">
-          </button>
-        </div>
+      <div class="menu-bar">
+        <button class="toggle" id="sort-toggle" aria-label="Sort Toggle Button">
+          <img src="images/sort-solid.svg">
+        </button>
+        <button class="toggle" id="filter-toggle" aria-label="Filter Toggle Button">
+          <img src="images/filter-solid.svg">
+        </button>
+      </div>
 
-        <div class="sort-portfolio">
-          <a href="#">A to Z</a>
-          <a href="#">Newest</a>
-          <a href="#">Oldest</a>
-        </div>
-        <div class="filter-portfolio">
-          <a href="#">Display All</a>
-          <a href="#">HTML & CSS only</a>
-          <a href="#">HTML CSS & JavaScript</a>
-        </div>
+      <div class="sort-portfolio">
+        <button type="button" data-sort="date:asc">Ascending</button>
+        <button  type="button" data-sort="date:desc">Descending</button>
+      </div>
+      <div class="filter-portfolio">
+        <button class="filter" data-filter="all">All</button>
+        <button class="filter" data-filter=".css">HTML & CSS</button>
+        <button class="filter" data-filter=".js">HTML CSS & JavaScript</button>
+      </div>
 
-      <section id="portfolio-images">
-        <!-- LINKS TO PORTFOLIO PAGES -->
-        <div id="tumi" class="html-css-js">
-          <img src="images/tumi-page.png" alt="Preview of Tumi web page">
-          <p>
-            <a href="projects/tumi/index.html" target="_blank">Learn More</a>
-          </p>
-        </div>
+      <section id="portfolio-images" class="container">
 
-        <div id="bounty20" class="html-css">
-          <img src="images/bounty20.png" alt="Preview of Bounty20 menu page">
-          <p>
-            <a href="projects/bounty20/index.html" target="_blank">Learn More</a>
-          </p>
-        </div>
-
-        <div id="relaxr" class="html-css">
-          <img src="images/relaxr.png" alt="">
-          <p>
-            <a href="projects/relaxr/blog.html" target="_blank">Learn More</a>
-          </p>
-        </div>
-
-        <div id="eshas" class="html-css-js">
-          <img src="images/eshas.png" alt="">
-          <p>
-            <a href="projects/esha/index.html" target="_blank">Learn More</a>
-          </p>
-        </div>
       </section>
     </main>
 
@@ -111,19 +81,47 @@
       <h2>Contact</h2>
       <nav>
         <a href="mailto:abcd@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/reitumetse-pulumo">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/reitumetse-pulumo" target="_blank">LinkedIn</a>
       </nav>
-
-
     </footer>
+
+    <!-- Scroll to top button -->
+    <button class="toggle" id="scroll-arrow" aria-label="Scroll to top Toggle">
+      <img src="images/double-up-solid.svg">
+    </button>
+
 
     <script
       src="http://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
     <script src="js/video-functions.js"></script>
     <script>
     $(document).ready(function(){
+
+      const projects = [
+        {img: "images/tumi-page.png", class: "mix css", date: "2018-10-15", projectSite: 'projects/tumi/index.html'},
+        {img: "images/bounty20.png", class: "mix css", date: "2018-10-10", projectSite: 'projects/bounty20/index.html'},
+        {img: "images/relaxr.png", class: "mix js", date: "2018-10-30", projectSite: 'projects/relaxr/blog.html'},
+        {img: "images/eshas.png", class: "mix js", date: "2018-10-09", projectSite: 'projects/esha/index.html'},
+      ];
+      let template = '';
+      for (let project of projects) {
+
+        template += `<div class="${project.class}" data-date=${project.date}>
+            <img src="${project.img}" alt="">
+            <p>
+              <a href="${project.projectSite}" target="_blank">
+                <img src="images/eye-solid.svg" class='eye-toggle' alt="">
+              </a>
+            </p>
+          </div>`
+      }
+      $('#portfolio-images').append(template);
+
+      let mixcontainer = $('.container')[0];
+      let mixer = mixitup(mixcontainer);
 
 
       $('#menu-toggle').click(function(){
@@ -144,75 +142,11 @@
         $('.filter-portfolio').slideToggle();
       });
 
+
+
       $('#main-nav, .sort-portfolio, .filter-portfolio').click(function(){
       $(this).slideUp();
       });
-
-      // FILTER
-
-      $('.filter-portfolio a:nth-child(1)').click(function(){
-        $('.html-css-js').show();
-        $('.html-css').show();
-      });
-
-      $('.filter-portfolio a:nth-child(2)').click(function(){
-        $('.html-css-js').hide();
-        $('.html-css').show();
-      });
-
-      $('.filter-portfolio a:nth-child(3)').click(function(){
-        $('.html-css').hide();
-        $('.html-css-js').show();
-      });
-
-      // Sort
-      $('.sort-portfolio a:nth-child(1)').click(function(){
-        let sort-ids = ['tumi', 'bounty20', 'relaxr', 'eshas'];
-        $(sort-ids).sort();
-        for (let sort-id of sort-ids) {
-          if (sort-id === 'bounty20') {
-            $('#portfolio-images div:first-child').html(`
-              <div id="bounty20" class="html-css">
-                <img src="images/bounty20.png" alt="Preview of Bounty20 menu page">
-                <p>
-                  <a href="projects/bounty20/index.html" target="_blank">Learn More</a>
-                </p>
-              </div>
-            `);
-            else if (sort-id === 'eshas') {
-              $('#portfolio-images div:nth-child(2)').html(`
-                <div id="eshas" class="html-css-js">
-                  <img src="images/eshas.png" alt="">
-                  <p>
-                    <a href="projects/esha/index.html" target="_blank">Learn More</a>
-                  </p>
-                </div>
-                `);
-              else if (sort-id === 'relaxr') {
-                $('#portfolio-images div:nth-child(3)').html(`
-                  <div id="relaxr" class="html-css">
-                    <img src="images/relaxr.png" alt="">
-                    <p>
-                      <a href="projects/relaxr/blog.html" target="_blank">Learn More</a>
-                    </p>
-                  </div>
-                  `);
-                else if (sort-id === 'tumi') {
-                  $('portfolio-images div:nth-child(4)').html(`
-                    <div id="tumi" class="html-css-js">
-                      <img src="images/tumi-page.png" alt="Preview of Tumi web page">
-                      <p>
-                        <a href="projects/tumi/index.html" target="_blank">Learn More</a>
-                      </p>
-                    </div>
-                    `);
-                }
-              }
-            }
-          }
-        }
-      });
-
 
 
       $(window).scroll(function(){
@@ -224,12 +158,25 @@
       });
 
       $('#scroll-arrow').click(function(){
-        $('html, body').animate({scrollTop : 0},800);
+        $('html, body').animate({scrollTop : 0},1000);
         $('#main-nav, .sort-portfolio, .filter-portfolio').slideUp();
-        return false;
       });
 
+      $(document).scroll(function(){
+      scrollSticky();
+      });
 
+      let navOffset = $('.nav-container').offset();
+
+      // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+      function scrollSticky() {
+        if (window.pageYOffset > navOffset.top) {
+          $('.nav-container').addClass('sticky');
+        } else {
+          $('.nav-container').removeClass('sticky')
+        }
+      }
+      
     });
     </script>
 
