@@ -47,6 +47,7 @@ p {
   transition: height 0.5s;
   -webkit-transition: height 0.5s;
   -moz-transition: height 0.5s;
+  cursor: pointer;
 }
 
 small {

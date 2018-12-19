@@ -90,6 +90,10 @@ header {
   margin: 0 -2rem;
 }
 
+.nav-outer {
+  height: 6rem; /* so that when .nav-container becomes fixed in tablet and desktop, the header text does not bounce  */
+}
+
 #main-nav {
   background-color: #003434;
   position: absolute;
@@ -175,15 +179,11 @@ header {
 }
 
 #portfolio-images a {
-  /* padding: 1rem;
-  /* background-color: white; */
-  /* border-radius: 10px; */
   transition: background-color .5s ease-in-out;
   z-index: 50;
 }
 
 #portfolio-images a img {
-  /* display: inline-block; */
   height: 2rem;
   width: auto;
   transition: 1s;
@@ -210,9 +210,15 @@ header {
     margin-bottom: 2rem;
   }
 
+  .nav-container {
+    height: 6rem;
+    transition: height ease-in .5s;
+    /* background-color: #003434; */
+  }
+
   #main-nav {
     position: initial;
-    display: flex !important; /* <-- Add it here */
+    display: flex !important;
     justify-content: space-between;
     padding: 0 2rem;
   }
@@ -225,14 +231,14 @@ header {
   #menu-toggle {
     display: none;
   }
+  .sticky {
+    position: fixed;
+    top: 0;
+    height: 3rem;
+  }
 
 }
 
-.nav-container {
-  height: 6rem;
-  transition: height ease-in .5s;
-  background-color: #003434;
-}
 
 /* DESKTOP STYLES */
 @media (min-width: 922px) {

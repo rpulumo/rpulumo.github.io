@@ -23,7 +23,7 @@
       <button class="toggle" id="menu-toggle" aria-label="Main Navigation Menu Toggle">
         <img src="images/toggle.svg">
       </button>
-
+    <div class = 'nav-outer'>
       <div class="nav-container">
         <nav id="main-nav">
           <a href="#home">Home</a>
@@ -32,6 +32,8 @@
           <a href="#contact">Contact</a>
         </nav>
       </div>
+    </div>
+
 
 
       <div id='intro'>
@@ -172,11 +174,14 @@
       function scrollSticky() {
         if (window.pageYOffset > navOffset.top) {
           $('.nav-container').addClass('sticky');
+          // $('header').css('padding-top', '150px');
         } else {
-          $('.nav-container').removeClass('sticky')
+          $('.nav-container').removeClass('sticky');
+          // $('header').removeAttr('style');
+
         }
       }
-      
+
     });
     </script>
 
